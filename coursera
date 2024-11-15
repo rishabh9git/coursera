@@ -1,0 +1,100 @@
+import React from 'react';
+import { Building, Users, BookOpen, Award, DollarSign, Briefcase, GraduationCap, CheckCircle, LineChart } from 'lucide-react';
+
+const ComparisonTable = () => {
+  const comparisons = [
+    {
+      aspect: 'Founded',
+      coursera: '2012 by Stanford professors Daphne Koller and Andrew Ng',
+      edx: '2012 by Harvard University and MIT',
+      icon: Building
+    },
+    {
+      aspect: 'Purpose',
+      coursera: 'To provide universal access to world-class learning',
+      edx: 'To increase access to high-quality education for everyone, everywhere',
+      icon: Award
+    },
+    {
+      aspect: 'Revenue Model',
+      coursera: 'Primarily through course fees, subscriptions (e.g., Coursera Plus), and enterprise solutions',
+      edx: 'Revenue from verified certificates, MicroMasters programs, and corporate training solutions',
+      icon: DollarSign
+    },
+    {
+      aspect: 'No of Courses',
+      coursera: 'Over 9,000 courses across various disciplines',
+      edx: 'More than 3,500 courses from leading institutions',
+      icon: BookOpen
+    },
+    {
+      aspect: 'Partners',
+      coursera: 'Collaborates with over 250 leading universities and companies, including Yale, Stanford, and Google',
+      edx: 'Partners with over 260 institutions, including Harvard, MIT, and IBM',
+      icon: Briefcase
+    },
+    {
+      aspect: 'Learner Base',
+      coursera: 'Over 92 million registered users worldwide',
+      edx: 'More than 86 million learners globally',
+      icon: Users
+    },
+    {
+      aspect: 'Offerings',
+      coursera: 'Individual courses, Specializations, Professional Certificates, MasterTrack Certificates, and full degree programs',
+      edx: 'Individual courses, MicroMasters programs, Professional Certificates, and full degree programs',
+      icon: GraduationCap
+    },
+    {
+      aspect: 'Accreditation',
+      coursera: 'Offers accredited certs & degrees in partnership with universities',
+      edx: 'Provides accredited certificates and degrees through partner institutions',
+      icon: CheckCircle
+    },
+    {
+      aspect: 'Revenue',
+      coursera: '$690 million',
+      edx: 'Not publicly disclosed (was $84 million in 2020 before acquisition by 2U)',
+      icon: LineChart
+    }
+  ];
+
+  return (
+    <div className="bg-white p-6 rounded-lg shadow-lg max-w-6xl mx-auto">
+      <h1 className="text-3xl font-bold text-center mb-8">Coursera vs edX: Comprehensive Comparison</h1>
+      
+      <div className="grid grid-cols-1 gap-4">
+        {comparisons.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <div key={index} className="grid grid-cols-7 items-center p-4 rounded-lg hover:bg-gray-50">
+              <div className="col-span-1 flex items-center gap-2">
+                <Icon className="w-6 h-6 text-gray-600" />
+                <span className="font-semibold text-gray-700">{item.aspect}</span>
+              </div>
+              <div className="col-span-3 ml-4 p-3 bg-blue-50 rounded-lg">
+                <p className="text-sm text-gray-700">{item.coursera}</p>
+              </div>
+              <div className="col-span-3 ml-4 p-3 bg-red-50 rounded-lg">
+                <p className="text-sm text-gray-700">{item.edx}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      
+      <div className="mt-6 flex justify-center gap-8">
+        <div className="flex items-center">
+          <div className="w-4 h-4 bg-blue-50 rounded mr-2"></div>
+          <span className="text-sm text-gray-600">Coursera</span>
+        </div>
+        <div className="flex items-center">
+          <div className="w-4 h-4 bg-red-50 rounded mr-2"></div>
+          <span className="text-sm text-gray-600">edX</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ComparisonTable;
